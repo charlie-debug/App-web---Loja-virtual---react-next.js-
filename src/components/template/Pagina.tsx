@@ -8,9 +8,10 @@ export interface PaginaProps{
 export default function Pagina(props: PaginaProps){
     return(
 
-     <div className="flex flex-col">
+     <div className="flex flex-col min-h-screen">
         <Cabecalho/>
-        <main>{props.children}</main>
+        <main className={`flex-1 w-[800px] mx-auto ${props.className ?? ""} py-10`}>
+            {props.children}</main>
         </div>
     )
 }

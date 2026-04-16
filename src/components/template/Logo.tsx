@@ -6,7 +6,7 @@ export default function Logo(){
      <Link href="/">
         <div className="flex flex-col items-center -mt-2 ">
             <div className="text-xl leading-4">A Z</div>
-            <IconBrandAmazon size={32} stroke={1} className="-mt-2"/>
+            <IconBrandAmazon size={50} stroke={1} className="-mt-2"/>
         </div>
      </Link>
     )
