@@ -1,3 +1,4 @@
+'use client'
 import Cabecalho from "./Cabecalho";
 
 export interface PaginaProps{

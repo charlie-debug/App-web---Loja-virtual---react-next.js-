@@ -1,3 +1,4 @@
+'use client'
 import { IconBrandAmazon } from "@tabler/icons-react";
 import Link from "next/link";
 

@@ -1,4 +1,4 @@
-import Carrinho from "./Crrinho";
+import Carrinho from "./Carrinho";
 import Logo from "./Logo";
 
 export default function Cabecalho() {
