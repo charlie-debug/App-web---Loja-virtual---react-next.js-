@@ -10,7 +10,7 @@ export default function Home() {
 
   return (
     <Pagina>
-      <div>
+      <div className="flex gap-5 justify-center flex-wrap">
         {produtos.map((produto) => (
           <CartaoProduto key={produto.id} produto={produto} />
         )
