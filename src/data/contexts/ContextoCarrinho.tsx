@@ -2,6 +2,7 @@
 import { createContext, useState } from "react"
 import ItemCarrinho from "../model/ItemCarrinho"
 import Produto from "../model/Produto";
+import useLocalStorage from "../hooks/useLocalStorage";
 interface ConstextoCarrinhoProps{
     itens: ItemCarrinho[];
     qtdeDeItens: number;
@@ -11,15 +12,16 @@ interface ConstextoCarrinhoProps{
 
 const ConstextoCarrinho = createContext<ConstextoCarrinhoProps>({}as any)
 export function ProvedorCarrinho(props: any) {
-    const [itens, setItens] = useState<ItemCarrinho[]>([])
+    const [itens, setItens] = useState<ItemCarrinho[]>([]);
+    const {set, get} = useLocalStorage();
     function adicionar(produto: Produto){
    const indice = itens.findIndex((i)=>i.produto.id === produto.id); 
    if(indice === -1){
-    setItens([...itens,{produto, quantidade:1} ])
+    alterarItens([...itens,{produto, quantidade:1} ])
    }  else{
     const novosItens =[...itens]
     novosItens[indice].quantidade++
-    setItens(novosItens)
+    alterarItens(novosItens)
    } 
 }
    function remover (produto: Produto){
@@ -29,7 +31,12 @@ export function ProvedorCarrinho(props: any) {
         }
         return i
     }).filter((i)=>i.quantidade >0)
-    setItens(novosItens)
+    alterarItens(novosItens)
+   }
+   function alterarItens(novosItens: ItemCarrinho[]){
+   setItens(novosItens)
+   set('carrinho', novosItens);
+   
    }
 
     return (
