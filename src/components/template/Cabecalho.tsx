@@ -1,3 +1,4 @@
+'use client'
 import Carrinho from "./Carrinho";
 import Logo from "./Logo";
 
